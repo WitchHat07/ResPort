@@ -1,0 +1,112 @@
+[gd_scene load_steps=7 format=3 uid="uid://185dn3410u17"]
+
+[ext_resource type="Theme" uid="uid://dn4qjlxmfs7jc" path="res://addons/ResPort/res_port_theme.tres" id="1_0wopf"]
+[ext_resource type="Script" uid="uid://cq1d4ls0yaxhf" path="res://addons/ResPort/script_block.gd" id="1_ny1rl"]
+[ext_resource type="FontFile" uid="uid://dfsbebrn2swjh" path="res://addons/ResPort/ORBITRON-BLACK.TTF" id="3_trfvb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mc2nk"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.28, 0.28, 0.28, 1)
+border_blend = true
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wopf"]
+content_margin_left = 6.0
+content_margin_right = 6.0
+bg_color = Color(0.5, 0.5, 0.5, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.63, 0.63, 0.63, 1)
+border_blend = true
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_2aoae"]
+font_size = 12
+font_color = Color(1, 1, 1, 0.39215687)
+
+[node name="ScriptBlock" type="Panel" node_paths=PackedStringArray("name_edit", "path_edit")]
+custom_minimum_size = Vector2(200, 40)
+offset_right = 200.0
+offset_bottom = 40.0
+theme = ExtResource("1_0wopf")
+theme_override_styles/panel = SubResource("StyleBoxFlat_mc2nk")
+script = ExtResource("1_ny1rl")
+name_edit = NodePath("HBoxContainer/Name")
+path_edit = NodePath("HBoxContainer/Path")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 10.5
+offset_right = -7.0
+offset_bottom = -7.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="LineEdit" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_colors/font_selected_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_colors/caret_color = Color(1, 0.65333337, 0.35000002, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_0wopf")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0wopf")
+placeholder_text = "ItemExample"
+emoji_menu_enabled = false
+caret_blink = true
+
+[node name="Label" type="Label" parent="HBoxContainer/Name"]
+layout_mode = 0
+offset_top = -8.0
+offset_right = 102.0
+offset_bottom = 15.0
+scale = Vector2(1, 0.5)
+text = "NAME"
+label_settings = SubResource("LabelSettings_2aoae")
+
+[node name="Path" type="LineEdit" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_colors/font_selected_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_colors/caret_color = Color(1, 0.654902, 0.34901962, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_0wopf")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0wopf")
+placeholder_text = "res://addons/ResPort/demo/item_example.gd"
+caret_blink = true
+
+[node name="Label" type="Label" parent="HBoxContainer/Path"]
+layout_mode = 0
+offset_top = -8.0
+offset_right = 102.0
+offset_bottom = 15.0
+scale = Vector2(1, 0.5)
+text = "PATH"
+label_settings = SubResource("LabelSettings_2aoae")
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+modulate = Color(0.76, 0.4712, 0.4712, 1)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.38039216)
+theme_override_fonts/font = ExtResource("3_trfvb")
+text = "X"
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="delete"]

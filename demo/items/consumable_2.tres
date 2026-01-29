@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemExample" load_steps=2 format=3 uid="uid://d07ac7it8i03r"]
+
+[ext_resource type="Script" uid="uid://dx1bwm6251rxy" path="res://addons/ResPort/demo/item_example.gd" id="1_rkivr"]
+
+[resource]
+script = ExtResource("1_rkivr")
+display_name = "Elixir"
+cost = 99
+category = "Consumable"
+metadata/_custom_type_script = "uid://dx1bwm6251rxy"

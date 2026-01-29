@@ -1,0 +1,450 @@
+[gd_scene load_steps=18 format=3 uid="uid://7lv5hpljiw2t"]
+
+[ext_resource type="Theme" uid="uid://dn4qjlxmfs7jc" path="res://addons/ResPort/res_port_theme.tres" id="1_o0h03"]
+[ext_resource type="Script" uid="uid://bn6lfq6momc3o" path="res://addons/ResPort/dock.gd" id="2_wwn7t"]
+[ext_resource type="FontFile" uid="uid://dfsbebrn2swjh" path="res://addons/ResPort/ORBITRON-BLACK.TTF" id="3_wwn7t"]
+[ext_resource type="FontFile" uid="uid://btnq226fxoo1y" path="res://addons/ResPort/ORBITRON-MEDIUM.TTF" id="4_mc2nk"]
+
+[sub_resource type="Gradient" id="Gradient_b5xod"]
+colors = PackedColorArray(0, 0, 0, 1, 1.5883148e-06, 0, 0.5650341, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rvbr4"]
+gradient = SubResource("Gradient_b5xod")
+fill_from = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_02ydt"]
+font = ExtResource("3_wwn7t")
+font_size = 20
+font_color = Color(0.757073, 0.7779179, 0.94491255, 1)
+shadow_size = 8
+shadow_color = Color(0, 0.15294118, 0.80784315, 1)
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ydh0h"]
+font = ExtResource("4_mc2nk")
+font_size = 10
+font_color = Color(0.5974274, 0.62067264, 0.89691293, 1)
+outline_color = Color(0, 0.33756217, 0.33756217, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvbr4"]
+bg_color = Color(0, 0.15351224, 0.80898523, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 1, 1)
+border_blend = true
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u0mp4"]
+content_margin_left = 6.0
+content_margin_top = 16.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_b5xod"]
+font_size = 12
+font_color = Color(1, 1, 1, 0.78431374)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wwn7t"]
+bg_color = Color(0.11, 0.11, 0.11, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.5, 0.5, 0.5, 1)
+border_blend = true
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mc2nk"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2aoae"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ydh0h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wwn7t"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5yt58"]
+
+[node name="ResPort" type="Control" node_paths=PackedStringArray("execute_button", "script_block_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o0h03")
+script = ExtResource("2_wwn7t")
+execute_button = NodePath("TabContainer/Actions/ScrollContainer/VBoxContainer/Buttons/Execute")
+script_block_container = NodePath("TabContainer/Settings/ScrollContainer/VBoxContainer/Panel/ScrollContainer/Scripts")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_rvbr4")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 1.0
+offset_right = 109.0
+offset_bottom = 44.0
+text = "ResPort"
+label_settings = SubResource("LabelSettings_02ydt")
+
+[node name="Version" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -93.0
+offset_top = 4.0
+offset_right = -16.0
+offset_bottom = 47.0
+grow_horizontal = 0
+text = "V 0.1"
+label_settings = SubResource("LabelSettings_ydh0h")
+horizontal_alignment = 2
+
+[node name="Credit" type="Label" parent="."]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 4.0
+offset_right = 189.0
+offset_bottom = 47.0
+text = "by Elixir99"
+label_settings = SubResource("LabelSettings_ydh0h")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 2
+current_tab = 2
+clip_tabs = false
+
+[node name="Actions" type="Panel" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rvbr4")
+metadata/_tab_index = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Actions"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_u0mp4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Actions/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="ScriptName" type="LineEdit" parent="TabContainer/Actions/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "ItemExample"
+placeholder_text = "Item"
+
+[node name="Label" type="Label" parent="TabContainer/Actions/ScrollContainer/VBoxContainer/ScriptName"]
+layout_mode = 0
+offset_top = -8.0
+offset_right = 102.0
+offset_bottom = 15.0
+scale = Vector2(1, 0.5)
+text = "SCRIPT NAME"
+label_settings = SubResource("LabelSettings_b5xod")
+
+[node name="RootDirectory" type="LineEdit" parent="TabContainer/Actions/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "resources/items"
+placeholder_text = "resources/items/"
+
+[node name="Label" type="Label" parent="TabContainer/Actions/ScrollContainer/VBoxContainer/RootDirectory"]
+layout_mode = 0
+offset_top = -8.0
+offset_right = 102.0
+offset_bottom = 15.0
+scale = Vector2(1, 0.5)
+text = "ROOT DIRECTORY"
+label_settings = SubResource("LabelSettings_b5xod")
+
+[node name="CsvPath" type="LineEdit" parent="TabContainer/Actions/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "items.csv"
+placeholder_text = "items.csv"
+
+[node name="Label" type="Label" parent="TabContainer/Actions/ScrollContainer/VBoxContainer/CsvPath"]
+layout_mode = 0
+offset_top = -8.0
+offset_right = 102.0
+offset_bottom = 15.0
+scale = Vector2(1, 0.5)
+text = "CSV PATH"
+label_settings = SubResource("LabelSettings_b5xod")
+
+[node name="Buttons" type="GridContainer" parent="TabContainer/Actions/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 3
+
+[node name="Mode" type="OptionButton" parent="TabContainer/Actions/ScrollContainer/VBoxContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Export"
+popup/item_0/id = 1
+popup/item_1/text = "Import"
+popup/item_1/id = 0
+
+[node name="Validate" type="Button" parent="TabContainer/Actions/ScrollContainer/VBoxContainer/Buttons"]
+unique_name_in_owner = true
+modulate = Color(1, 0.7137255, 0.57254905, 1)
+layout_mode = 2
+text = "Validate"
+
+[node name="Execute" type="Button" parent="TabContainer/Actions/ScrollContainer/VBoxContainer/Buttons"]
+modulate = Color(1, 0.45, 0.725, 1)
+layout_mode = 2
+disabled = true
+text = "Execute"
+
+[node name="Notice" type="RichTextLabel" parent="TabContainer/Actions/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 0.69803923, 0.5686275, 1)
+theme_override_font_sizes/normal_font_size = 12
+fit_content = true
+scroll_active = false
+
+[node name="Settings" type="Panel" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wwn7t")
+metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_mc2nk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="Buttons" type="HBoxContainer" parent="TabContainer/Settings/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="AddScript" type="Button" parent="TabContainer/Settings/ScrollContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Add Script"
+
+[node name="Panel" type="Panel" parent="TabContainer/Settings/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2aoae")
+
+[node name="Label" type="Label" parent="TabContainer/Settings/ScrollContainer/VBoxContainer/Panel"]
+layout_mode = 0
+offset_top = -8.0
+offset_right = 102.0
+offset_bottom = 15.0
+scale = Vector2(1, 0.5)
+text = "SCRIPTS"
+label_settings = SubResource("LabelSettings_b5xod")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Settings/ScrollContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ydh0h")
+
+[node name="Scripts" type="VBoxContainer" parent="TabContainer/Settings/ScrollContainer/VBoxContainer/Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Help" type="Panel" parent="TabContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rvbr4")
+metadata/_tab_index = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Help"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_wwn7t")
+scroll_vertical = 880
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Help/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Notice" type="RichTextLabel" parent="TabContainer/Help/ScrollContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.8, 0.81333333, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5yt58")
+bbcode_enabled = true
+text = "[font_size=26][b]Help & Usage Guide[/b][/font_size]
+
+[b]ResPort[/b] allows you to import and export Godot [b]Resources[/b] to and from CSV files.  
+It is designed for bulk editing, balancing, iteration, and data auditing directly within the editor.
+
+ResPort works by calling a small, explicit interface on your Resource scripts.  
+Once configured, it can export existing Resources, re-import edited CSV data, and automatically create new Resource instances from CSV rows that do not yet exist.
+
+[font_size=22][b]Overview[/b][/font_size]
+
+For ResPort to operate correctly, two steps are required:
+
+1. Register target scripts in the [b]Settings[/b] tab  
+2. Implement the ResPort CSV interface in those scripts  
+
+Once complete, the [b]Actions[/b] tab can be used to validate, import, or export data.
+
+[font_size=22][b]1. Settings Tab – Script Registration[/b][/font_size]
+
+Before ResPort can operate on a Resource type, it must know which script to target and where that script exists in the project. This is done by defining [b]Script Mappings[/b] in the Settings tab.
+
+Each mapping requires:
+
+[b]Script Name[/b]  
+Must match the script’s [i]class_name[/i] [u]exactly[/u] (case-sensitive).
+
+[b]Script Path[/b]  
+The full project path to the [i].gd[/i] file.  
+Example: [i]res://addons/ResPort/demo/item_example.gd[/i]
+
+Script mappings are persisted between editor sessions and can be freely added, removed, or modified as your project evolves.
+
+[font_size=22][b]2. Required Script Interface[/b][/font_size]
+
+Every script registered in ResPort [b]must[/b]:
+
+• Use [i]@tool[/i]
+• Extend [i]Resource[/i] (directly or indirectly)  
+• Implement the ResPort CSV interface  
+
+These methods form a lightweight contract between your script and ResPort.
+
+[b]func to_csv_header() -> Array[String][/b]  
+Defines the CSV column headers for this Resource.  
+ResPort may inject additional headers before these fields.
+
+[b]func to_csv_fields() -> Array[String][/b]  
+Serializes the Resource’s data into CSV field values.  
+The order must match [i]to_csv_header()[/i].
+
+[b]func apply_csv_fields(values: Array[String])[/b]  
+Applies CSV values back into the Resource.  
+Indexes must match [i]to_csv_header()[/i].
+
+[font_size=22][b]Example Implementation[/b][/font_size]
+
+A complete reference implementation is included with the plugin:
+
+[i]res://addons/ResPort/demo/item_example.gd[/i]
+
+ResPort ships pre-configured to work with this demo script and its example Resources.  
+The demo folder is optional and may be safely removed at any time.
+
+[font_size=22][b]Important Rules & Best Practices[/b][/font_size]
+
+[b]@tool is required[/b]  
+ResPort runs in the editor. Scripts without [i]@tool[/i] will not function.
+
+[b]Resources only[/b]  
+Target scripts must extend `Resource`. Inheriting from your own Resource subclasses is fully supported.
+
+[b]Inheritance is supported[/b]  
+For inheritance chains (e.g. [i]Weapon → Item → Resource[/i]), override the CSV methods, call [i]super()[/i] where appropriate, and append or handle additional fields explicitly.
+
+[b]Order matters[/b]  
+The order defined in [i]to_csv_header()[/i] controls CSV layout, value mapping, and import correctness. Headers and fields must remain aligned.
+
+[font_size=22][b]CSV Import Behavior[/b][/font_size]
+
+During CSV import:
+
+• Existing Resources are updated via [i]apply_csv_fields()[/i]
+• Rows referencing non-existent Resources automatically create new instances  
+• Newly created Resources are saved to disk and populated through your interface  
+
+This enables content creation, prototyping, and large-scale data iteration entirely through CSV.
+
+[font_size=22][b]Actions Tab[/b][/font_size]
+
+Once scripts are registered and interfaces are implemented:
+
+• Select a Script Name  
+• Select a Root Directory  
+• Select a CSV file  
+• Use [b]Validate[/b] to confirm setup  
+• Use [b]Import[/b] or [b]Export[/b] to execute  
+
+Validation confirms script mappings, required methods, and CSV structure before execution.
+
+[font_size=22][b]Final Notes[/b][/font_size]
+
+ResPort is intentionally explicit.  
+Nothing is inferred. Nothing is hidden.
+
+If ResPort knows which script to target, how to serialize it, and how to apply data back, it can safely and predictably move data between your project and CSV.
+
+Happy exporting 🚀
+"
+fit_content = true
+scroll_active = false
+
+[connection signal="text_changed" from="TabContainer/Actions/ScrollContainer/VBoxContainer/ScriptName" to="." method="_on_import_export_value_changed" unbinds=1]
+[connection signal="text_changed" from="TabContainer/Actions/ScrollContainer/VBoxContainer/RootDirectory" to="." method="_on_import_export_value_changed" unbinds=1]
+[connection signal="text_changed" from="TabContainer/Actions/ScrollContainer/VBoxContainer/CsvPath" to="." method="_on_import_export_value_changed" unbinds=1]
+[connection signal="item_selected" from="TabContainer/Actions/ScrollContainer/VBoxContainer/Buttons/Mode" to="." method="_on_import_export_value_changed" unbinds=1]
+[connection signal="pressed" from="TabContainer/Actions/ScrollContainer/VBoxContainer/Buttons/Validate" to="." method="_on_validate_button_pressed"]
+[connection signal="pressed" from="TabContainer/Actions/ScrollContainer/VBoxContainer/Buttons/Execute" to="." method="_on_execute_button_pressed"]
+[connection signal="pressed" from="TabContainer/Settings/ScrollContainer/VBoxContainer/Buttons/AddScript" to="." method="add_script_block" binds= ["", "", true]]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemExample" load_steps=2 format=3 uid="uid://4mauvmiw4ep3"]
+
+[ext_resource type="Script" uid="uid://dx1bwm6251rxy" path="res://addons/ResPort/demo/item_example.gd" id="1_0n810"]
+
+[resource]
+script = ExtResource("1_0n810")
+display_name = "Potion"
+cost = 50
+category = "Consumable"
+metadata/_custom_type_script = "uid://dx1bwm6251rxy"
