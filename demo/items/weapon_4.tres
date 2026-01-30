@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ItemExample" load_steps=2 format=3 uid="uid://ccl35jle84xs4"]
+
+[ext_resource type="Script" uid="uid://dx1bwm6251rxy" path="res://addons/ResPort/demo/item_example.gd" id="1_vv7p5"]
+
+[resource]
+script = ExtResource("1_vv7p5")
+display_name = "Spear"
+cost = 800
+category = "Weapon"

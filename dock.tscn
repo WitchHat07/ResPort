@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=3 uid="uid://7lv5hpljiw2t"]
 
-[ext_resource type="Theme" uid="uid://dn4qjlxmfs7jc" path="res://addons/ResPort/res_port_theme.tres" id="1_o0h03"]
+[ext_resource type="Theme" uid="uid://dn4qjlxmfs7jc" path="res://addons/ResPort/resources/res_port_theme.tres" id="1_o0h03"]
 [ext_resource type="Script" uid="uid://bn6lfq6momc3o" path="res://addons/ResPort/dock.gd" id="2_wwn7t"]
-[ext_resource type="FontFile" uid="uid://dfsbebrn2swjh" path="res://addons/ResPort/ORBITRON-BLACK.TTF" id="3_wwn7t"]
-[ext_resource type="FontFile" uid="uid://btnq226fxoo1y" path="res://addons/ResPort/ORBITRON-MEDIUM.TTF" id="4_mc2nk"]
+[ext_resource type="FontFile" uid="uid://dfsbebrn2swjh" path="res://addons/ResPort/resources/ORBITRON-BLACK.TTF" id="3_wwn7t"]
+[ext_resource type="FontFile" uid="uid://btnq226fxoo1y" path="res://addons/ResPort/resources/ORBITRON-MEDIUM.TTF" id="4_mc2nk"]
 
 [sub_resource type="Gradient" id="Gradient_b5xod"]
 colors = PackedColorArray(0, 0, 0, 1, 1.5883148e-06, 0, 0.5650341, 1)
@@ -144,11 +144,10 @@ offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 2
-current_tab = 2
+current_tab = 0
 clip_tabs = false
 
 [node name="Actions" type="Panel" parent="TabContainer"]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rvbr4")
 metadata/_tab_index = 0
@@ -185,7 +184,7 @@ label_settings = SubResource("LabelSettings_b5xod")
 [node name="RootDirectory" type="LineEdit" parent="TabContainer/Actions/ScrollContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "resources/items"
+text = "addons/ResPort/demo/items"
 placeholder_text = "resources/items/"
 
 [node name="Label" type="Label" parent="TabContainer/Actions/ScrollContainer/VBoxContainer/RootDirectory"]
@@ -200,7 +199,7 @@ label_settings = SubResource("LabelSettings_b5xod")
 [node name="CsvPath" type="LineEdit" parent="TabContainer/Actions/ScrollContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "items.csv"
+text = "demo_items.csv"
 placeholder_text = "items.csv"
 
 [node name="Label" type="Label" parent="TabContainer/Actions/ScrollContainer/VBoxContainer/CsvPath"]
@@ -242,6 +241,7 @@ text = "Execute"
 
 [node name="Notice" type="RichTextLabel" parent="TabContainer/Actions/ScrollContainer/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(0, 18)
 layout_mode = 2
 theme_override_colors/default_color = Color(1, 0.69803923, 0.5686275, 1)
@@ -306,6 +306,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Help" type="Panel" parent="TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rvbr4")
 metadata/_tab_index = 2
@@ -318,7 +319,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_wwn7t")
-scroll_vertical = 880
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Help/ScrollContainer"]
 layout_mode = 2

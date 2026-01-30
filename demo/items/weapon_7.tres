@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ItemExample" load_steps=2 format=3 uid="uid://tn5ulej37gg4"]
+
+[ext_resource type="Script" uid="uid://dx1bwm6251rxy" path="res://addons/ResPort/demo/item_example.gd" id="1_bd4ki"]
+
+[resource]
+script = ExtResource("1_bd4ki")
+display_name = "Spoon"
+cost = 1100
+category = "Weapon"

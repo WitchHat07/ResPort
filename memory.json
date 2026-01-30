@@ -1,6 +1,1 @@
-{
-  "csv_path": "demo_items.csv",
-  "root_directory": "addons/ResPort/demo/items",
-  "script_map": { "ItemExample": "res://addons/ResPort/demo/item_example.gd" },
-  "script_name": "ItemExample"
-}
+{"csv_path":"demo_items.csv","root_directory":"addons/ResPort/demo/items","script_map":{"ItemExample":"res://addons/ResPort/demo/item_example.gd"},"script_name":"ItemExample"}

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ItemExample" load_steps=2 format=3 uid="uid://bnshipt51p5dv"]
+
+[ext_resource type="Script" uid="uid://dx1bwm6251rxy" path="res://addons/ResPort/demo/item_example.gd" id="1_nk5ge"]
+
+[resource]
+script = ExtResource("1_nk5ge")
+display_name = "Coffee"
+cost = 234
+category = "Consumable"
