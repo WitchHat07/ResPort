@@ -1,9 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://7lv5hpljiw2t"]
+[gd_scene load_steps=19 format=3 uid="uid://7lv5hpljiw2t"]
 
 [ext_resource type="Theme" uid="uid://dn4qjlxmfs7jc" path="res://addons/res_port/resources/res_port_theme.tres" id="1_o0h03"]
-[ext_resource type="Script" uid="uid://bn6lfq6momc3o" path="res://addons/res_port/dock.gd" id="2_wwn7t"]
-[ext_resource type="FontFile" uid="uid://dfsbebrn2swjh" path="res://addons/res_port/resources/ORBITRON-BLACK.TTF" id="3_wwn7t"]
-[ext_resource type="FontFile" uid="uid://btnq226fxoo1y" path="res://addons/res_port/resources/ORBITRON-MEDIUM.TTF" id="4_mc2nk"]
+[ext_resource type="Script" uid="uid://bbx72qeen83ft" path="res://addons/res_port/dock.gd" id="2_wwn7t"]
+[ext_resource type="FontFile" uid="uid://dcio736pi1u1" path="res://addons/res_port/resources/ORBITRON-BLACK.TTF" id="3_wwn7t"]
+[ext_resource type="FontFile" uid="uid://btckuh646lhe8" path="res://addons/res_port/resources/ORBITRON-MEDIUM.TTF" id="4_mc2nk"]
 
 [sub_resource type="Gradient" id="Gradient_b5xod"]
 colors = PackedColorArray(0, 0, 0, 1, 1.5883148e-06, 0, 0.5650341, 1)
@@ -80,7 +80,9 @@ content_margin_bottom = 6.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5yt58"]
 
-[node name="ResPort" type="Control" node_paths=PackedStringArray("execute_button", "script_block_container")]
+[sub_resource type="LabelSettings" id="LabelSettings_j2xs6"]
+
+[node name="ResPort" type="Control" node_paths=PackedStringArray("execute_button", "custom_resource_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,7 +92,7 @@ grow_vertical = 2
 theme = ExtResource("1_o0h03")
 script = ExtResource("2_wwn7t")
 execute_button = NodePath("TabContainer/Actions/ScrollContainer/VBoxContainer/Buttons/Execute")
-script_block_container = NodePath("TabContainer/Settings/ScrollContainer/VBoxContainer/Panel/ScrollContainer/Scripts")
+custom_resource_container = NodePath("TabContainer/Settings/ScrollContainer/VBoxContainer/Panel/ScrollContainer/Scripts")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -166,8 +168,24 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 16
 
+[node name="ResourceType" type="OptionButton" parent="TabContainer/Actions/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0.03137255, 0.78431374)
+theme_override_font_sizes/font_size = 16
+
+[node name="Label" type="Label" parent="TabContainer/Actions/ScrollContainer/VBoxContainer/ResourceType"]
+layout_mode = 0
+offset_top = -8.0
+offset_right = 102.0
+offset_bottom = 15.0
+scale = Vector2(1, 0.5)
+text = "RESOURCE TYPE"
+label_settings = SubResource("LabelSettings_b5xod")
+
 [node name="ScriptName" type="LineEdit" parent="TabContainer/Actions/ScrollContainer/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "ItemExample"
 placeholder_text = "Item"
@@ -178,14 +196,13 @@ offset_top = -8.0
 offset_right = 102.0
 offset_bottom = 15.0
 scale = Vector2(1, 0.5)
-text = "SCRIPT NAME"
+text = "RESOURCE TYPE"
 label_settings = SubResource("LabelSettings_b5xod")
 
 [node name="RootDirectory" type="LineEdit" parent="TabContainer/Actions/ScrollContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "addons/ResPort/demo/items"
-placeholder_text = "resources/items/"
+placeholder_text = "Entire Project"
 
 [node name="Label" type="Label" parent="TabContainer/Actions/ScrollContainer/VBoxContainer/RootDirectory"]
 layout_mode = 0
@@ -199,7 +216,6 @@ label_settings = SubResource("LabelSettings_b5xod")
 [node name="CsvPath" type="LineEdit" parent="TabContainer/Actions/ScrollContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "demo_items.csv"
 placeholder_text = "items.csv"
 
 [node name="Label" type="Label" parent="TabContainer/Actions/ScrollContainer/VBoxContainer/CsvPath"]
@@ -276,7 +292,18 @@ alignment = 2
 
 [node name="AddScript" type="Button" parent="TabContainer/Settings/ScrollContainer/VBoxContainer/Buttons"]
 layout_mode = 2
-text = "Add Script"
+text = "Add Resource"
+
+[node name="ResourceNotice" type="RichTextLabel" parent="TabContainer/Settings/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 0.69803923, 0.5686275, 1)
+theme_override_font_sizes/normal_font_size = 12
+text = "This is a notice"
+fit_content = true
+scroll_active = false
 
 [node name="Panel" type="Panel" parent="TabContainer/Settings/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 300)
@@ -289,7 +316,7 @@ offset_top = -8.0
 offset_right = 102.0
 offset_bottom = 15.0
 scale = Vector2(1, 0.5)
-text = "SCRIPTS"
+text = "RESOURCE TYPES"
 label_settings = SubResource("LabelSettings_b5xod")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Settings/ScrollContainer/VBoxContainer/Panel"]
@@ -330,47 +357,22 @@ layout_mode = 2
 theme_override_colors/default_color = Color(0.8, 0.81333333, 1, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_5yt58")
 bbcode_enabled = true
-text = "[font_size=26][b]Help & Usage Guide[/b][/font_size]
+text = "[font_size=22][b]Overview[/b][/font_size]
 
-[b]ResPort[/b] allows you to import and export Godot [b]Resources[/b] to and from CSV files.  
-It is designed for bulk editing, balancing, iteration, and data auditing directly within the editor.
-
-ResPort works by calling a small, explicit interface on your Resource scripts.  
-Once configured, it can export existing Resources, re-import edited CSV data, and automatically create new Resource instances from CSV rows that do not yet exist.
-
-[font_size=22][b]Overview[/b][/font_size]
+This plugin allows you to import and export Godot [b]Resources[/b] to and from CSV files.   It was designed to speed up your ability to modify resources in bulk, via CSV. It works by calling a small, explicit interface on your Resource scripts. Once configured, the plugin will be able to export those custom Resources, re-import edited CSV data, and automatically create new Resource instances from CSV rows that do not yet exist.
 
 For ResPort to operate correctly, two steps are required:
+1. Implement the ResPort [b]interface[/b] in those scripts
+2. Register custom Resource Types in the [b]Settings[/b] tab  
+3. Import and export freely via the [b]Actions[/b] tab
 
-1. Register target scripts in the [b]Settings[/b] tab  
-2. Implement the ResPort CSV interface in those scripts  
 
-Once complete, the [b]Actions[/b] tab can be used to validate, import, or export data.
+[font_size=22][b]Step 1: Implement Interface[/b][/font_size]
 
-[font_size=22][b]1. Settings Tab – Script Registration[/b][/font_size]
-
-Before ResPort can operate on a Resource type, it must know which script to target and where that script exists in the project. This is done by defining [b]Script Mappings[/b] in the Settings tab.
-
-Each mapping requires:
-
-[b]Script Name[/b]  
-Must match the script’s [i]class_name[/i] [u]exactly[/u] (case-sensitive).
-
-[b]Script Path[/b]  
-The full project path to the [i].gd[/i] file.  
-Example: [i]res://addons/ResPort/demo/item_example.gd[/i]
-
-Script mappings are persisted between editor sessions and can be freely added, removed, or modified as your project evolves.
-
-[font_size=22][b]2. Required Script Interface[/b][/font_size]
-
-Every script registered in ResPort [b]must[/b]:
-
-• Use [i]@tool[/i]
-• Extend [i]Resource[/i] (directly or indirectly)  
-• Implement the ResPort CSV interface  
-
-These methods form a lightweight contract between your script and ResPort.
+For each custom Resource that you want ResPort to handle, the Resource [b]must[/b]:
+• Include [i]@tool[/i] at the very top
+• Extend [i]Resource[/i] (either directly or indirectly)  
+• Include the following ResPort CSV interface methods:
 
 [b]func to_csv_header() -> Array[String][/b]  
 Defines the CSV column headers for this Resource.  
@@ -384,67 +386,110 @@ The order must match [i]to_csv_header()[/i].
 Applies CSV values back into the Resource.  
 Indexes must match [i]to_csv_header()[/i].
 
-[font_size=22][b]Example Implementation[/b][/font_size]
+[i]See res://addons/res_port/example/item_example.gd for an example of the interface implemented into a Resource script.[/i]
 
-A complete reference implementation is included with the plugin:
 
-[i]res://addons/ResPort/demo/item_example.gd[/i]
+[font_size=22][b]Step 2: Configure Settings[/b][/font_size]
 
-ResPort ships pre-configured to work with this demo script and its example Resources.  
-The demo folder is optional and may be safely removed at any time.
+Before ResPort can operate on of your custom Resources, it must know which Resources to target. This is done by defining [b]Resource Types[/b] in the Settings tab. Simply select the custom Resource scripts that you wish to include. Selections persist between editor sessions and can be freely added, removed, or modified as your project evolves.
 
-[font_size=22][b]Important Rules & Best Practices[/b][/font_size]
+[i]Note that should the path change for any of your Resources scripts, they will need to be reconfigured in the settings tab.[/i]
+
+
+[font_size=22][b]Step 3: Actions[/b][/font_size]
+
+With ResPort now configured, you are free to import and export. Select from configured Resource Types, choose the existing or desired CSV path, and toggle export or import mode. 
+
+To execute the action, [b]Validate[/b] must first be performed. If validation is successful, the [b]Execute[/b] button will become available. If not successful, a notice of steps to correct will be provided.
+
+[i]It is possible to test actions using the example ItemExample Resource Type included with the plugin. The example folder is optional and may be safely removed at any time.[/i]
+
+
+[font_size=22][b]Rules & Best Practices[/b][/font_size]
 
 [b]@tool is required[/b]  
 ResPort runs in the editor. Scripts without [i]@tool[/i] will not function.
 
 [b]Resources only[/b]  
-Target scripts must extend `Resource`. Inheriting from your own Resource subclasses is fully supported.
+Target scripts must extend [i]Resource[/i], directly or indirectly.
 
 [b]Inheritance is supported[/b]  
-For inheritance chains (e.g. [i]Weapon → Item → Resource[/i]), override the CSV methods, call [i]super()[/i] where appropriate, and append or handle additional fields explicitly.
+For inheritance chains (e.g. [i]Weapon → Item → Resource[/i]), override the interface methods, call [i]super()[/i] where appropriate, and append or handle additional fields explicitly.
 
 [b]Order matters[/b]  
 The order defined in [i]to_csv_header()[/i] controls CSV layout, value mapping, and import correctness. Headers and fields must remain aligned.
 
-[font_size=22][b]CSV Import Behavior[/b][/font_size]
+[b]CSV Import Behavior[/b]
+When importing, existing Resources are updated via [i]apply_csv_fields()[/i], rows referencing non-existent Resources automatically create new instances, and newly created Resources are saved to disk and populated through your interface.
 
-During CSV import:
 
-• Existing Resources are updated via [i]apply_csv_fields()[/i]
-• Rows referencing non-existent Resources automatically create new instances  
-• Newly created Resources are saved to disk and populated through your interface  
-
-This enables content creation, prototyping, and large-scale data iteration entirely through CSV.
-
-[font_size=22][b]Actions Tab[/b][/font_size]
-
-Once scripts are registered and interfaces are implemented:
-
-• Select a Script Name  
-• Select a Root Directory  
-• Select a CSV file  
-• Use [b]Validate[/b] to confirm setup  
-• Use [b]Import[/b] or [b]Export[/b] to execute  
-
-Validation confirms script mappings, required methods, and CSV structure before execution.
-
-[font_size=22][b]Final Notes[/b][/font_size]
-
-ResPort is intentionally explicit.  
-Nothing is inferred. Nothing is hidden.
-
-If ResPort knows which script to target, how to serialize it, and how to apply data back, it can safely and predictably move data between your project and CSV.
-
+[b]Thank you for using ResPort![/b]
 Happy exporting 🚀
 "
 fit_content = true
 scroll_active = false
 
-[connection signal="text_changed" from="TabContainer/Actions/ScrollContainer/VBoxContainer/ScriptName" to="." method="_on_import_export_value_changed" unbinds=1]
-[connection signal="text_changed" from="TabContainer/Actions/ScrollContainer/VBoxContainer/RootDirectory" to="." method="_on_import_export_value_changed" unbinds=1]
-[connection signal="text_changed" from="TabContainer/Actions/ScrollContainer/VBoxContainer/CsvPath" to="." method="_on_import_export_value_changed" unbinds=1]
+[node name="ClickBlock" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="Label" type="Label" parent="ClickBlock"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PROMPTING FILEPATH"
+label_settings = SubResource("LabelSettings_j2xs6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CsvDialog" type="FileDialog" parent="."]
+oversampling_override = 1.0
+title = "Set Export Path"
+initial_position = 4
+max_size = Vector2i(1000, 1000)
+ok_button_text = "Confirm"
+display_mode = 1
+access = 2
+filters = PackedStringArray("*.csv")
+hidden_files_toggle_enabled = false
+
+[node name="ScriptDialog" type="FileDialog" parent="."]
+oversampling_override = 1.0
+title = "Open a File"
+initial_position = 4
+max_size = Vector2i(1000, 1000)
+ok_button_text = "Select"
+file_mode = 0
+display_mode = 1
+filters = PackedStringArray("*.gd")
+hidden_files_toggle_enabled = false
+
+[node name="WithinProjectConfirm" type="ConfirmationDialog" parent="."]
+oversampling_override = 1.0
+title = "Wait a sec!"
+initial_position = 4
+size = Vector2i(300, 186)
+ok_button_text = "OK"
+dialog_text = "It is recommended that CSV files be saved outside your Godot project! Godot treats CSV files as translation files natively. If you still wish to export to a path within the project, it is recommended that you modify the Import settings for the file to 'Import As: Skip File' after saving to avoid errors on project load."
+dialog_autowrap = true
+
+[connection signal="editing_toggled" from="TabContainer/Actions/ScrollContainer/VBoxContainer/CsvPath" to="." method="_on_csv_path_editing_toggled"]
 [connection signal="item_selected" from="TabContainer/Actions/ScrollContainer/VBoxContainer/Buttons/Mode" to="." method="_on_import_export_value_changed" unbinds=1]
 [connection signal="pressed" from="TabContainer/Actions/ScrollContainer/VBoxContainer/Buttons/Validate" to="." method="_on_validate_button_pressed"]
 [connection signal="pressed" from="TabContainer/Actions/ScrollContainer/VBoxContainer/Buttons/Execute" to="." method="_on_execute_button_pressed"]
-[connection signal="pressed" from="TabContainer/Settings/ScrollContainer/VBoxContainer/Buttons/AddScript" to="." method="add_script_block" binds= ["", "", true]]
+[connection signal="pressed" from="TabContainer/Settings/ScrollContainer/VBoxContainer/Buttons/AddScript" to="." method="prompt_script_dialogue"]
+[connection signal="canceled" from="CsvDialog" to="." method="_on_csv_dialog_canceled"]
+[connection signal="file_selected" from="CsvDialog" to="." method="_on_csv_dialog_file_selected"]
+[connection signal="canceled" from="ScriptDialog" to="." method="_on_script_dialog_canceled"]
+[connection signal="file_selected" from="ScriptDialog" to="." method="_on_script_dialog_file_selected"]
+[connection signal="canceled" from="WithinProjectConfirm" to="." method="_on_within_project_confirm_canceled"]
+[connection signal="confirmed" from="WithinProjectConfirm" to="." method="_on_within_project_confirm_confirmed"]

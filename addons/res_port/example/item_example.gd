@@ -23,7 +23,7 @@ func to_csv_fields() -> Array[String]:
 ## Applies field values loaded from a CSV that index-match this Resource's defined headers
 func apply_csv_fields(values: Array[String]):
 	if values.size() < 3:
-		print("ResPort: Invalid CSV data for Item")
+		print("Invalid CSV data for Item")
 		return
 	display_name = values.get(0)
 	cost = int(values.get(1))

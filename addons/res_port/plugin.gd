@@ -2,8 +2,8 @@
 extends EditorPlugin
 
 const GLOBAL_NAME := "ResPort"
-const GLOBAL_SCRIPT_PATH := "res://addons/ResPort/res_port.gd"
-const DOCK_PATH := "res://addons/ResPort/dock.tscn"
+const GLOBAL_SCRIPT_PATH := "res://addons/res_port/res_port.gd"
+const DOCK_PATH := "res://addons/res_port/dock.tscn"
 var dock_instance: Control
 
 func _enter_tree() -> void:

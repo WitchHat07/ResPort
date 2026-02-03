@@ -1,1 +1,7 @@
-{"csv_path":"demo_items.csv","root_directory":"addons/ResPort/demo/items","script_map":{"ItemExample":"res://addons/ResPort/demo/item_example.gd"},"script_name":"ItemExample"}
+{
+  "csv_path": "",
+  "custom_resources_paths": [ "res://addons/res_port/example/item_example.gd" ],
+  "root_directory": "",
+  "seen_help": false,
+  "selected_resource": 0
+}

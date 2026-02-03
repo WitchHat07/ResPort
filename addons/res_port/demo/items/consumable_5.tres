@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="ItemExample" load_steps=2 format=3 uid="uid://hhwiu2wat66g"]
-
-[ext_resource type="Script" uid="uid://dx1bwm6251rxy" path="res://addons/res_port/demo/item_example.gd" id="1_yox1y"]
-
-[resource]
-script = ExtResource("1_yox1y")
-display_name = "Soda"
-cost = 335
-category = "Consumable"

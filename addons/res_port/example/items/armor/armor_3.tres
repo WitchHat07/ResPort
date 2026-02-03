@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemExample" load_steps=2 format=3 uid="uid://bahpxl13mjd5q"]
+
+[ext_resource type="Script" uid="uid://dx1bwm6251rxy" path="res://addons/res_port/example/item_example.gd" id="1_bwy1h"]
+
+[resource]
+script = ExtResource("1_bwy1h")
+display_name = "Bronze Helmet"
+cost = 1000
+category = "Helmet"
+metadata/_custom_type_script = "uid://dx1bwm6251rxy"

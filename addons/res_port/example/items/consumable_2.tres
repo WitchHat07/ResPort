@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemExample" load_steps=2 format=3 uid="uid://d07ac7it8i03r"]
 
-[ext_resource type="Script" uid="uid://dx1bwm6251rxy" path="res://addons/res_port/demo/item_example.gd" id="1_rkivr"]
+[ext_resource type="Script" uid="uid://dx1bwm6251rxy" path="res://addons/res_port/example/item_example.gd" id="1_rkivr"]
 
 [resource]
 script = ExtResource("1_rkivr")
