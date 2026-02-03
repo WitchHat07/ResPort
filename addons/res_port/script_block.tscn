@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://185dn3410u17"]
 
-[ext_resource type="Theme" uid="uid://dn4qjlxmfs7jc" path="res://addons/ResPort/resources/res_port_theme.tres" id="1_0wopf"]
-[ext_resource type="Script" uid="uid://cq1d4ls0yaxhf" path="res://addons/ResPort/script_block.gd" id="1_ny1rl"]
-[ext_resource type="FontFile" uid="uid://dfsbebrn2swjh" path="res://addons/ResPort/resources/ORBITRON-BLACK.TTF" id="3_trfvb"]
+[ext_resource type="Theme" uid="uid://dn4qjlxmfs7jc" path="res://addons/res_port/resources/res_port_theme.tres" id="1_0wopf"]
+[ext_resource type="Script" uid="uid://cq1d4ls0yaxhf" path="res://addons/res_port/script_block.gd" id="1_ny1rl"]
+[ext_resource type="FontFile" uid="uid://dfsbebrn2swjh" path="res://addons/res_port/resources/ORBITRON-BLACK.TTF" id="3_trfvb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mc2nk"]
 bg_color = Color(0.2, 0.2, 0.2, 1)

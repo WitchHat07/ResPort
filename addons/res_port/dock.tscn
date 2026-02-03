@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=3 uid="uid://7lv5hpljiw2t"]
 
-[ext_resource type="Theme" uid="uid://dn4qjlxmfs7jc" path="res://addons/ResPort/resources/res_port_theme.tres" id="1_o0h03"]
-[ext_resource type="Script" uid="uid://bn6lfq6momc3o" path="res://addons/ResPort/dock.gd" id="2_wwn7t"]
-[ext_resource type="FontFile" uid="uid://dfsbebrn2swjh" path="res://addons/ResPort/resources/ORBITRON-BLACK.TTF" id="3_wwn7t"]
-[ext_resource type="FontFile" uid="uid://btnq226fxoo1y" path="res://addons/ResPort/resources/ORBITRON-MEDIUM.TTF" id="4_mc2nk"]
+[ext_resource type="Theme" uid="uid://dn4qjlxmfs7jc" path="res://addons/res_port/resources/res_port_theme.tres" id="1_o0h03"]
+[ext_resource type="Script" uid="uid://bn6lfq6momc3o" path="res://addons/res_port/dock.gd" id="2_wwn7t"]
+[ext_resource type="FontFile" uid="uid://dfsbebrn2swjh" path="res://addons/res_port/resources/ORBITRON-BLACK.TTF" id="3_wwn7t"]
+[ext_resource type="FontFile" uid="uid://btnq226fxoo1y" path="res://addons/res_port/resources/ORBITRON-MEDIUM.TTF" id="4_mc2nk"]
 
 [sub_resource type="Gradient" id="Gradient_b5xod"]
 colors = PackedColorArray(0, 0, 0, 1, 1.5883148e-06, 0, 0.5650341, 1)
